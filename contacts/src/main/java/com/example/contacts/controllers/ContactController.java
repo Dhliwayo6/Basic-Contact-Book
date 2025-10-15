@@ -1,6 +1,7 @@
 package com.example.contacts.controllers;
 
 import com.example.contacts.dtos.ContactDTO;
+import com.example.contacts.dtos.UpdateContact;
 import com.example.contacts.model.Contact;
 import com.example.contacts.services.contact.*;
 import org.springframework.http.ResponseEntity;
@@ -42,5 +43,10 @@ public class ContactController {
     @GetMapping("contacts")
     public ResponseEntity<List<ContactDTO>> getContacts() {
         return getContactsService.execute(null);
+    }
+
+    @PutMapping("/contact{id}")
+    public ResponseEntity<ContactDTO> updateContact(@PathVariable Integer id, @RequestBody Contact contact) {
+        return updateContactService.execute(new UpdateContact(id, contact));
     }
 }
