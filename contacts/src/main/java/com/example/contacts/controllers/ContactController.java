@@ -6,6 +6,8 @@ import com.example.contacts.services.contact.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class ContactController {
 
@@ -32,8 +34,13 @@ public class ContactController {
         return createContactService.execute(contact);
     }
 
-    @GetMapping("/contact")
+    @GetMapping("/contact{id}")
     public ResponseEntity<ContactDTO> getContactById(@PathVariable Integer id) {
         return getContactService.execute(id);
+    }
+
+    @GetMapping("contacts")
+    public ResponseEntity<List<ContactDTO>> getContacts() {
+        return getContactsService.execute(null);
     }
 }
