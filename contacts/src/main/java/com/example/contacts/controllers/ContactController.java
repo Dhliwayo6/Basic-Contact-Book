@@ -4,9 +4,7 @@ import com.example.contacts.dtos.ContactDTO;
 import com.example.contacts.model.Contact;
 import com.example.contacts.services.contact.*;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class ContactController {
@@ -34,5 +32,8 @@ public class ContactController {
         return createContactService.execute(contact);
     }
 
-
+    @GetMapping("/contact")
+    public ResponseEntity<ContactDTO> getContactById(@PathVariable Integer id) {
+        return getContactService.execute(id);
+    }
 }
