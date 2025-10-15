@@ -49,4 +49,9 @@ public class ContactController {
     public ResponseEntity<ContactDTO> updateContact(@PathVariable Integer id, @RequestBody Contact contact) {
         return updateContactService.execute(new UpdateContact(id, contact));
     }
+
+    @DeleteMapping("/contact{id}")
+    public ResponseEntity<Void> deleteById(@PathVariable Integer id) {
+        return deleteContactService.execute(id);
+    }
 }
