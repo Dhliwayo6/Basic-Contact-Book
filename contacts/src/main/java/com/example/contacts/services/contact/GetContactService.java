@@ -5,9 +5,11 @@ import com.example.contacts.dtos.ContactDTO;
 import com.example.contacts.model.Contact;
 import com.example.contacts.repositories.ContactRepository;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 public class GetContactService implements Query<Integer, ContactDTO> {
 
     private ContactRepository contactRepository;

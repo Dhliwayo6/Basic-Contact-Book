@@ -6,9 +6,11 @@ import com.example.contacts.model.Contact;
 import com.example.contacts.repositories.ContactRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class GetContactsService implements Query<Void, List<ContactDTO>> {
 
     private ContactRepository contactRepository;
