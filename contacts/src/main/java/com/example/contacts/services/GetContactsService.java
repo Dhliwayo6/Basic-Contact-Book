@@ -2,6 +2,7 @@ package com.example.contacts.services;
 
 import com.example.contacts.Query;
 import com.example.contacts.dtos.ContactDTO;
+import com.example.contacts.exceptions.NoResultsException;
 import com.example.contacts.model.Contact;
 import com.example.contacts.repositories.ContactRepository;
 import org.springframework.http.HttpStatus;
@@ -23,6 +24,10 @@ public class GetContactsService implements Query<Void, List<ContactDTO>> {
     public ResponseEntity<List<ContactDTO>> execute(Void input) {
         List<Contact> contacts = contactRepository.findAll();
         List<ContactDTO> contactDTOS = contacts.stream().map(ContactDTO::new).toList();
+
+        if (contactDTOS.isEmpty()) {
+            throw new NoResultsException();
+        }
 
         return ResponseEntity.status(HttpStatus.OK).body(contactDTOS);
     }
