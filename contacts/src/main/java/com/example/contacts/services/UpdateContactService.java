@@ -1,4 +1,4 @@
-package com.example.contacts.services.contact;
+package com.example.contacts.services;
 
 import com.example.contacts.Command;
 import com.example.contacts.dtos.ContactDTO;

@@ -3,7 +3,7 @@ package com.example.contacts.controllers;
 import com.example.contacts.dtos.ContactDTO;
 import com.example.contacts.dtos.UpdateContact;
 import com.example.contacts.model.Contact;
-import com.example.contacts.services.contact.*;
+import com.example.contacts.services.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
