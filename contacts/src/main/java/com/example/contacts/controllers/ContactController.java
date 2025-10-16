@@ -35,7 +35,7 @@ public class ContactController {
         return createContactService.execute(contact);
     }
 
-    @GetMapping("/contact{id}")
+    @GetMapping("/contact/{id}")
     public ResponseEntity<ContactDTO> getContactById(@PathVariable Integer id) {
         return getContactService.execute(id);
     }
@@ -45,12 +45,12 @@ public class ContactController {
         return getContactsService.execute(null);
     }
 
-    @PutMapping("/contact{id}")
+    @PutMapping("/contact/{id}")
     public ResponseEntity<ContactDTO> updateContact(@PathVariable Integer id, @RequestBody Contact contact) {
         return updateContactService.execute(new UpdateContact(id, contact));
     }
 
-    @DeleteMapping("/contact{id}")
+    @DeleteMapping("/contact/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable Integer id) {
         return deleteContactService.execute(id);
     }
