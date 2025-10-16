@@ -13,4 +13,10 @@ public class GlobalExceptionHandler {
     public ErrorResponse handleContactNotFoundException(ContactNotFoundException e) {
         return new ErrorResponse(e.getMessage());
     }
+
+    @ExceptionHandler(NoResultsException.class)
+    @ResponseStatus(HttpStatus.OK)
+    public ErrorResponse handleNoResultsFoundException(NoResultsException e) {
+        return new ErrorResponse(e.getMessage());
+    }
 }
