@@ -27,5 +27,6 @@ public class DeleteContactService implements Command<Integer, Void> {
         }
 
         throw new IllegalArgumentException("Contact not found!");
+
     }
 }

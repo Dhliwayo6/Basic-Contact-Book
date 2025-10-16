@@ -2,6 +2,7 @@ package com.example.contacts.services;
 
 import com.example.contacts.Query;
 import com.example.contacts.dtos.ContactDTO;
+import com.example.contacts.exceptions.ContactNotFoundException;
 import com.example.contacts.model.Contact;
 import com.example.contacts.repositories.ContactRepository;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +27,6 @@ public class GetContactService implements Query<Integer, ContactDTO> {
             return ResponseEntity.ok(new ContactDTO(contactOptional.get()));
         }
 
-        throw new IllegalArgumentException("Contact not found!");
+        throw new ContactNotFoundException();
     }
 }

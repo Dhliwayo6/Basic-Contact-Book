@@ -21,7 +21,5 @@ public class CreateContactService implements Command<Contact, ContactDTO> {
     public ResponseEntity<ContactDTO> execute(Contact contact) {
         Contact contactSaved = contactRepository.save(contact);
         return ResponseEntity.status(HttpStatus.CREATED).body(new ContactDTO(contactSaved));
-
     }
-
 }
